@@ -72,17 +72,17 @@ def solve_all_n_queens_sat(board_size):
     var_dict = gen_dict(vars, board_size)
     clauses = []
 
-    # Each row must have exactly one queen
+    #each row must have exactly one queen
     for row in range(board_size):
         clauses.append([var_dict[(f"x{row}", col)] for col in range(board_size)])
 
-    # No two queens in the same column
+    #no two queens in the same column
     for col in range(board_size):
         for row1 in range(board_size):
             for row2 in range(row1 + 1, board_size):
                 clauses.append([-var_dict[(f"x{row1}", col)], -var_dict[(f"x{row2}", col)]])
 
-    # No diagonal attacks
+    #no diagonal attacks
     for i in range(board_size):
         for j in range(board_size):
             for k in range(i + 1, board_size):
@@ -101,13 +101,11 @@ def solve_all_n_queens_sat(board_size):
         solution = [var for var in model if var > 0]
         all_solutions.append(solution)
 
-        # Block the current solution
+        #block the current solution
         solver.add_clause([-var for var in solution])
 
     return all_solutions
 
-
-# Find all solutions for the 8-queens problem
 all_solutions = solve_all_n_queens_sat(8)
 print(f"Total Solutions: {len(all_solutions)}")
 for sol in all_solutions:

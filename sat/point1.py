@@ -2,7 +2,7 @@ from itertools import permutations
 
 def solve_n_queens(n):
 
-    # Generate all possible row arrangements (permutations of columns)
+    #generate all possible row arrangements (permutations of columns)
     cols = range(n)
     solutions = []
     
@@ -11,7 +11,7 @@ def solve_n_queens(n):
         valid = True
         for i in range(n):
             for j in range(i + 1, n):
-                if abs(perm[i] - perm[j]) == abs(i - j):  # Diagonal conflict
+                if abs(perm[i] - perm[j]) == abs(i - j):  #diagonal conflict
                     valid = False
                     break
             if not valid:
