@@ -10,7 +10,7 @@ def gen_dict(vars, size):
             k += 1
     return var_dict
 
-
+'''
 def gen_clauses(vars, size, var_dict):
     clauses = []
     for i in vars:
@@ -23,6 +23,7 @@ def gen_clauses(vars, size, var_dict):
             clauses.append(clause)
     return clauses
 
+    '''
 
 ''' Only one Solution
 def solve_n_queens_sat(board_size):
