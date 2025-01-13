@@ -38,7 +38,7 @@ class NQueenSolutionPrinter(cp_model.CpSolverSolutionCallback):
 
 
 
-def cp_SAT_solver(board_size: int) -> None:
+def cp_SAT_solver(board_size: int):
     # Creates the solver.
     model = cp_model.CpModel()
 
@@ -60,7 +60,6 @@ def cp_SAT_solver(board_size: int) -> None:
     solution_printer = NQueenSolutionPrinter(queens)
     solver.parameters.enumerate_all_solutions = True
     solver.solve(model, solution_printer)
+    print(solver.wall_time)
 
-    # Statistics.
-    print('Done in %f seconds' % solver.WallTime())
     return solver.num_conflicts, solver.num_branches, solver.wall_time, solution_printer.solution_count

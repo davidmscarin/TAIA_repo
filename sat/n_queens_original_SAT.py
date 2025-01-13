@@ -1,6 +1,7 @@
 """OR-Tools solution to the N-queens problem."""
 import sys
 from ortools.constraint_solver import pywrapcp
+from ortools.sat.python import cp_model
 
 
 def original_SAT_solver(board_size):
