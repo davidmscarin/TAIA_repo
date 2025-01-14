@@ -61,7 +61,7 @@ def main():
     plt.plot(sizes[:len(stats['cp']['failures'])], 
              stats['cp']['failures'], 's-', label="CP-SAT")
     plt.xlabel("Board Size (N)")
-    plt.ylabel("Time (s)")
+    plt.ylabel("Failures")
     plt.title("N-Queens Solver Failures Comparison")
     plt.legend()
     plt.grid(True)
@@ -76,7 +76,7 @@ def main():
     plt.plot(sizes[:len(stats['cp']['branches'])], 
              stats['cp']['branches'], 's-', label="CP-SAT")
     plt.xlabel("Board Size (N)")
-    plt.ylabel("Time (s)")
+    plt.ylabel("Branches")
     plt.title("N-Queens Solver Branches Comparison")
     plt.legend()
     plt.grid(True)
@@ -92,21 +92,9 @@ def main():
     plt.title("N-Queens Solutions Found")
     plt.legend()
     plt.grid(True)
-    plt.savefig('pics/n_solutions_cp_sat.png')
+    plt.savefig('pics/n_solutions_found.png')
     plt.show()
 
-
-    #no. solutions original solver
-    plt.figure(figsize=(10, 6))
-    plt.plot(sizes[:len(stats['original']['solutions'])], 
-             stats['original']['solutions'], 'o-', label="Original SAT", color='blue')
-    plt.xlabel("Board Size (N)")
-    plt.ylabel("Number of Solutions")
-    plt.title("N-Queens Solutions Found")
-    plt.legend()
-    plt.grid(True)
-    plt.savefig('pics/n_solutions_original.png')
-    plt.show()
 
 if __name__ == "__main__":
     main()
